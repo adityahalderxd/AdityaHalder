@@ -10,7 +10,7 @@ from pytgcalls.exceptions import NoActiveGroupCall
 from AdityaHalder import config
 from AdityaHalder import LOGGER, robot, userx, HELPABLE
 from AdityaHalder.plugins import ALL_MODULES
-from AdityaHalder.modules.helpers.core.sudo import SUDOERS
+from AdityaHalder.modules.core.sudo import SUDOERS
 from AdityaHalder.modules.helpers.filters import command
 from AdityaHalder.utilities.inline import paginate_modules
 
