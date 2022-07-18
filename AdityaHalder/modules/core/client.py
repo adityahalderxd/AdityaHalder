@@ -9,7 +9,7 @@ assistantids = []
 
 class botxd(Client):
     def __init__(self):
-        tgbot = Client(
+        tcbot = Client(
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_name=str(config.STRING_SESSION),
@@ -25,15 +25,15 @@ class botxd(Client):
     async def start(self):
         LOGGER(__name__).info(f"Starting User ID Clients")
         if config.STRING_SESSION:
-            await tgbot.start()
+            await tcbot.start()
             try:
-                await tgbot.join_chat("AdityaServer")
-                await tgbot.join_chat("AdityaDiscus")
+                await tcbot.join_chat("AdityaServer")
+                await tcbot.join_chat("AdityaDiscus")
             except:
                 pass
             assistants.append(1)
             try:
-                await tgbot.send_message(
+                await tcbot.send_message(
                     config.LOG_GROUP_ID, "UserBot Client Started"
                 )
             except:
@@ -41,18 +41,18 @@ class botxd(Client):
                     f"UserBot Account has failed to access the log Group. Make sure that you have added your UserBot Account to your log group and promoted as admin! "
                 )
                 sys.exit()
-            get_me = await tgbot.get_me()
-            tgbot.username = get_me.username
-            tgbot.id = get_me.id
+            get_me = await tcbot.get_me()
+            tcbot.username = get_me.username
+            tcbot.id = get_me.id
             assistantids.append(get_me.id)
             if get_me.last_name:
-                tgbot.name = (
+                tcbot.name = (
                     get_me.first_name + " " + get_me.last_name
                 )
             else:
-                tgbot.name = get_me.first_name
+                tcbot.name = get_me.first_name
             LOGGER(__name__).info(
-                f"UserBot Client Started as {tgbot.name}"
+                f"UserBot Client Started as {tcbot.name}"
             )
         if config.SESSION_STRING:
             await vcbot.start()
