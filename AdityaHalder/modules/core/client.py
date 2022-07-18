@@ -9,13 +9,13 @@ assistantids = []
 
 class botxd(Client):
     def __init__(self):
-        tcbot = Client(
+        self.one = Client(
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_name=str(config.STRING_SESSION),
             no_updates=True,
         )
-        vcbot = Client(
+        self.two = Client(
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_name=str(config.SESSION_STRING),
@@ -25,15 +25,15 @@ class botxd(Client):
     async def start(self):
         LOGGER(__name__).info(f"Starting User ID Clients")
         if config.STRING_SESSION:
-            await tcbot.start()
+            await self.one.start()
             try:
-                await tcbot.join_chat("AdityaServer")
-                await tcbot.join_chat("AdityaDiscus")
+                await self.one.join_chat("AdityaServer")
+                await self.one.join_chat("AdityaDiscus")
             except:
                 pass
             assistants.append(1)
             try:
-                await tcbot.send_message(
+                await self.one.send_message(
                     config.LOG_GROUP_ID, "UserBot Client Started"
                 )
             except:
@@ -41,29 +41,29 @@ class botxd(Client):
                     f"UserBot Account has failed to access the log Group. Make sure that you have added your UserBot Account to your log group and promoted as admin! "
                 )
                 sys.exit()
-            get_me = await tcbot.get_me()
-            tcbot.username = get_me.username
-            tcbot.id = get_me.id
+            get_me = await self.one.get_me()
+            self.one.username = get_me.username
+            self.one.id = get_me.id
             assistantids.append(get_me.id)
             if get_me.last_name:
-                tcbot.name = (
+                self.one.name = (
                     get_me.first_name + " " + get_me.last_name
                 )
             else:
-                tcbot.name = get_me.first_name
+                self.one.name = get_me.first_name
             LOGGER(__name__).info(
-                f"UserBot Client Started as {tcbot.name}"
+                f"UserBot Client Started as {self.one.name}"
             )
         if config.SESSION_STRING:
-            await vcbot.start()
+            await self.two.start()
             try:
-                await vcbot.join_chat("AdityaServer")
-                await vcbot.join_chat("AdityaDiscus")
+                await self.two.join_chat("AdityaServer")
+                await self.two.join_chat("AdityaDiscus")
             except:
                 pass
             assistants.append(2)
             try:
-                await vcbot.send_message(
+                await self.two.send_message(
                     config.LOG_GROUP_ID, "VcBot Client Started"
                 )
             except:
@@ -71,16 +71,16 @@ class botxd(Client):
                     f"VcBot Account has failed to access the log Group. Make sure that you have added your VcBot Account to your log group and promoted as admin! "
                 )
                 sys.exit()
-            get_me = await vcbot.get_me()
-            vcbot.username = get_me.username
-            vcbot.id = get_me.id
+            get_me = await self.two.get_me()
+            self.two.username = get_me.username
+            self.two.id = get_me.id
             assistantids.append(get_me.id)
             if get_me.last_name:
-                vcbot.name = (
+                self.two.name = (
                     get_me.first_name + " " + get_me.last_name
                 )
             else:
-                vcbot.name = get_me.first_name
+                self.two.name = get_me.first_name
             LOGGER(__name__).info(
-                f"VcBot Client Started as {vcbot.name}"
+                f"VcBot Client Started as {self.two.name}"
             )
