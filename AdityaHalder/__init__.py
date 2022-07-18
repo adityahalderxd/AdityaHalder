@@ -1,7 +1,7 @@
 from AdityaHalder.modules.core.dbs import dbb
 from AdityaHalder.modules.core.dirs import dirs
 from AdityaHalder.modules.core.github import git
-from AdityaHalder.modules.core.robot import xdbot, self
+from AdityaHalder.modules.core.robot import xdbot
 from AdityaHalder.modules.core.client import botxd, tgbot, vcbot
 from AdityaHalder.modules.core.sudo import sudo
 
@@ -9,8 +9,27 @@ from .logging import LOGGER
 
 HELPABLE = {}
 
+# Directories
+dirs()
+
+# Check Git Updates
+git()
+
+# Initialize Memory DB
+dbb()
+
+# Load Sudo Users from DB
+sudo()
+
+# Robot Client
+robot = xdbot()
+
+# Users Clients
+userx = botxd()
+
+
 # Robot Client Details
-getmebot = self.get_me()
+getmebot = robot.get_me()
 
 if getmebot.last_name:
  BOT_NAME = getmebot.first_name + " " + getmebot.last_name
@@ -41,21 +60,3 @@ else:
 
 VCBOT_NAME = getmevc.username
 VCBOT_USERID = getmevc.id
-
-# Directories
-dirs()
-
-# Check Git Updates
-git()
-
-# Initialize Memory DB
-dbb()
-
-# Load Sudo Users from DB
-sudo()
-
-# Robot Client
-robot = xdbot()
-
-# Users Clients
-userx = botxd()
