@@ -25,8 +25,9 @@ dbb()
 # Load Sudo Users from DB
 sudo()
 
-# Robot Client
+# All Clients
 robot = xdbot()
-
-# Users Clients
 userx = botxd()
+
+app = self.one()
+bot = self.two()
