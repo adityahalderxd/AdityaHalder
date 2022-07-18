@@ -9,6 +9,7 @@ from pytgcalls.exceptions import NoActiveGroupCall
 from AdityaHalder import config
 from AdityaHalder import LOGGER, robot, userx, HELPABLE
 from AdityaHalder.plugins import ALL_MODULES
+from AdityaHalder.modules.helpers.filters import command
 from AdityaHalder.utilities.inline import paginate_modules
 
 loop = asyncio.get_event_loop()
