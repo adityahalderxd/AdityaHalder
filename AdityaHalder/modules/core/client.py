@@ -84,6 +84,3 @@ class botxd(Client):
             LOGGER(__name__).info(
                 f"VcBot Client Started as {self.two.name}"
             )
-
-app = self.one
-bot = self.two
