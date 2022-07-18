@@ -13,18 +13,7 @@ MOD_LOAD = []
 MOD_NOLOAD = []
 
 
-# Directories
 dirs()
-
-# Check Git Updates
 git()
-
-# Initialize Memory DB
 dbb()
-
-# Load Sudo Users from DB
 sudo()
-
-# All Clients
-robot = xdbot()
-userx = botxd()
