@@ -27,18 +27,3 @@ robot = xdbot()
 # Users Clients
 userx = botxd()
 
-
-# Robot Client Details
-robot.name = self.name
-robot.username = self.username
-robot.id = self.id
-
-# UserBot Account Client Details
-tgbot.name = tgbot.name
-tgbot.username = tgbot.username
-tgbot.id = tgbot.id
-
-# VcBot Account Client Details
-vcbot.name = vcbot.name
-vcbot.username = vcbot.username
-vcbot.id = vcbot.id
