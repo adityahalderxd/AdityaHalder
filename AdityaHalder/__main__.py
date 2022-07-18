@@ -28,7 +28,7 @@ async def init():
         return
     await robot.start()
     for all_module in ALL_MODULES:
-        importlib.import_module("AdityaHalder.plugins." + all_module)
+        imported_module = importlib.import_module("AdityaHalder.plugins." + all_module)
         if (
                 hasattr(imported_module, "__MODULE__")
                 and imported_module.__MODULE__
