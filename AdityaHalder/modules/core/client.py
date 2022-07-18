@@ -13,6 +13,7 @@ class botxd(Client):
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_name=str(config.STRING_SESSION),
+            plugins=dict(root="AdityaHalder.plugins"),
             no_updates=True,
         )
         self.two = Client(
