@@ -1,6 +1,6 @@
 from AdityaHalder.modules.core.dbs import dbb
 from AdityaHalder.modules.core.dirs import dirs
-from AdityaHalder.modules.core.git import git
+from AdityaHalder.modules.core.github import git
 from AdityaHalder.modules.core.robot import xdbot, self
 from AdityaHalder.modules.core.client import botxd, tgbot, vcbot
 from AdityaHalder.modules.core.sudo import sudo
