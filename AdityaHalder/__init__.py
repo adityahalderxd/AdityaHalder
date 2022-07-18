@@ -7,7 +7,11 @@ from AdityaHalder.modules.core.sudo import sudo
 
 from .logging import LOGGER
 
+
 HELPABLE = {}
+MOD_LOAD = []
+MOD_NOLOAD = []
+
 
 # Directories
 dirs()
