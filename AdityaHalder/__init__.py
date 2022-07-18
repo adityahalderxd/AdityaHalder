@@ -2,7 +2,7 @@ from AdityaHalder.modules.core.dbs import dbb
 from AdityaHalder.modules.core.dirs import dirs
 from AdityaHalder.modules.core.github import git
 from AdityaHalder.modules.core.robot import xdbot
-from AdityaHalder.modules.core.client import botxd, tgbot, vcbot
+from AdityaHalder.modules.core.client import *
 from AdityaHalder.modules.core.sudo import sudo
 
 from .logging import LOGGER
@@ -29,34 +29,16 @@ userx = botxd()
 
 
 # Robot Client Details
-getmebot = robot.get_me()
-
-if getmebot.last_name:
- BOT_NAME = getmebot.first_name + " " + getmebot.last_name
-else:
- BOT_NAME = getmebot.first_name
-
-BOT_UNAME = getmebot.username
-BOT_USERID = getmebot.id
+robot.name = self.name
+robot.username = self.username
+robot.id = self.id
 
 # UserBot Account Client Details
-getmecli = tgbot.get_me()
-
-if getmecli.last_name:
- CLIBOT_NAME = getmecli.first_name + " " + getmecli.last_name
-else:
- CLIBOT_NAME = getmecli.first_name
-
-CLIBOT_UNAME = getmecli.username
-CLIBOT_USERID = getmecli.id
+tgbot.name = tgbot.name
+tgbot.username = tgbot.username
+tgbot.id = tgbot.id
 
 # VcBot Account Client Details
-getmevc = vcbot.get_me()
-
-if getmevc.last_name:
- VCBOT_NAME = getmevc.first_name + " " + getmevc.last_name
-else:
- VCBOT_NAME = getmevc.first_name
-
-VCBOT_NAME = getmevc.username
-VCBOT_USERID = getmevc.id
+vcbot.name = vcbot.name
+vcbot.username = vcbot.username
+vcbot.id = vcbot.id
