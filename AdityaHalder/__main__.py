@@ -3,7 +3,7 @@ import importlib
 import sys
 
 from pyrogram import idle
-from pyrogram import Client, filters
+from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pytgcalls.exceptions import NoActiveGroupCall
 
