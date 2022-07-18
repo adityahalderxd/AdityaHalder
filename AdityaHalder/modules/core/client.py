@@ -3,24 +3,38 @@ from pyrogram import Client
 from AdityaHalder import config
 from ...logging import LOGGER
 
+
 assistants = []
 assistantids = []
 
 
+app = Client(
+    config.STRING_SESSION,
+    config.API_ID,
+    config.API_HASH,
+    plugins=dict(root="plugins"),
+    no_updates=True,
+)
+
+ass = Client(
+    config.SESSION_STRING,
+    config.API_ID,
+    config.API_HASH,
+    no_updates=True,
+)
+
+bot = Client(
+    "AdityaHalder",
+    api_id=config.API_ID,
+    api_hash=config.API_HASH,
+    bot_token=config.BOT_TOKEN,
+)
+
+
 class botxd(Client):
     def __init__(self):
-        self.one = Client(
-            api_id=config.API_ID,
-            api_hash=config.API_HASH,
-            session_name=str(config.STRING_SESSION),
-            no_updates=True,
-        )
-        self.two = Client(
-            api_id=config.API_ID,
-            api_hash=config.API_HASH,
-            session_name=str(config.SESSION_STRING),
-            no_updates=True,
-        )
+        self.one = app
+        self.two = ass
 
     async def start(self):
         LOGGER(__name__).info(f"Starting User ID Clients")
