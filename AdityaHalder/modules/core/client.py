@@ -11,23 +11,20 @@ assistantids = []
 app = Client(
     config.STRING_SESSION,
     config.API_ID,
-    config.API_HASH,
-    plugins=dict(root="plugins"),
-    no_updates=True,
+    config.API_HASH
 )
 
 ass = Client(
     config.SESSION_STRING,
     config.API_ID,
-    config.API_HASH,
-    no_updates=True,
+    config.API_HASH
 )
 
 bot = Client(
     "AdityaHalder",
     api_id=config.API_ID,
     api_hash=config.API_HASH,
-    bot_token=config.BOT_TOKEN,
+    bot_token=config.BOT_TOKEN
 )
 
 
