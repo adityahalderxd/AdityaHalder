@@ -38,9 +38,7 @@ async def init():
                     HELPABLE[
                         imported_module.__MODULE__.lower()
                     ] = imported_module
-            LOGGER("AdityaHalder.plugins").info(
-                f">> Successfully imported: {all_module}.py"
-            )
+    LOGGER("AdityaHalder.plugins").info(f">> Successfully imported: {all_module}.py")
     LOGGER("AdityaHalder.plugins").info("All Modules Imported")
     await userx.start()
     LOGGER("AdityaHalder").info("Aditya Halder Started Successfully")
