@@ -29,5 +29,5 @@ sudo()
 robot = xdbot()
 userx = botxd()
 
-app = self.one()
-bot = self.two()
+app = xdbot.one()
+bot = xdbot.two()
