@@ -28,6 +28,4 @@ sudo()
 # All Clients
 robot = xdbot()
 userx = botxd()
-
-app = xdbot.one()
-bot = xdbot.two()
+app = userx
