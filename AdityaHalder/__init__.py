@@ -31,3 +31,5 @@ robot = xdbot()
 # Users Clients
 userx = botxd()
 
+# Engine Client
+app = self.one
