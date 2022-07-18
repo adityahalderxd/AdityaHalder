@@ -85,7 +85,7 @@ Yᴏᴜʀ Oᴡɴ » Gᴇɴɪᴜs Usᴇʀ Bᴏᴛ.
 @robot.on_message(command(["help"]) & SUDOERS)
 async def help_command(_, message):
     text, keyboard = await help_parser(message.from_user.mention)
-    await robot.send_message(LOG_GROUP_ID, text, reply_markup=keyboard)
+    await robot.send_message(config.LOG_GROUP_ID, text, reply_markup=keyboard)
 
 
 
