@@ -29,7 +29,7 @@ async def init():
         )
         return
     else:
-    await bot.start()
+      await bot.start()
     LOGGER("AdityaHalder").info("Bot Client Successfully Started")
     LOGGER("AdityaHalder").info("Starting User Bot Client")
     if (not config.STRING_SESSION):
