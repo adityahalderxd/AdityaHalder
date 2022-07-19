@@ -9,8 +9,8 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pytgcalls.exceptions import NoActiveGroupCall
 
+from .logging import LOGGER
 from AdityaHalder import config
-from AdityaHalder.logging import LOGGER
 from AdityaHalder.plugins import ALL_MODULES
 from AdityaHalder.modules.core.sudo import SUDOERS
 from AdityaHalder.modules.helpers.filters import command
