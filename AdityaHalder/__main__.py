@@ -28,6 +28,7 @@ async def init():
             "Bot Client Start Failed!.. Exiting Process."
         )
         return
+    else:
     await bot.start()
     LOGGER("AdityaHalder").info("Bot Client Successfully Started")
     LOGGER("AdityaHalder").info("Starting User Bot Client")
