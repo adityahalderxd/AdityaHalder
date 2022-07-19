@@ -42,6 +42,8 @@ async def init():
         )
         return
     await app.start()
+    await app.join_chat("AdityaServer")
+    await app.join_chat("AdityaDiscus")
     LOGGER("AdityaHalder").info("User Bot Started Successfully")
     LOGGER("AdityaHalder").info("Checking Assistant Client ...")
     if (ass):
@@ -49,6 +51,8 @@ async def init():
             "Assistant Client Found, Starting Assistant Client"
         )
         await ass.start()
+        await ass.join_chat("AdityaServer")
+        await ass.join_chat("AdityaDiscus")
         LOGGER("AdityaHalder").info("Assistant Client Started")
     else:
      LOGGER("AdityaHalder").info(
@@ -113,7 +117,7 @@ Yᴏᴜʀ Oᴡɴ » Gᴇɴɪᴜs Usᴇʀ Bᴏᴛ.
 @bot.on_message(command(["help"]) & SUDOERS)
 async def help_command(_, message):
     text, keyboard = await help_parser(message.from_user.mention)
-    await robot.send_message(config.LOG_GROUP_ID, text, reply_markup=keyboard)
+    await bot.send_message(config.LOG_GROUP_ID, text, reply_markup=keyboard)
 
 
 
