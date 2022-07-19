@@ -49,7 +49,7 @@ def updater():
     return bool(changelog)
 
 
-@bot.on_message(command(["update"]) & filters.user(OWNER_ID) & ~filters.edited)
+@app.on_message(command(["update"]) & filters.user(OWNER_ID) & ~filters.edited)
 async def update_bot(_, message: Message):
     chat_id = message.chat.id
     msg = await message.edit("**🥀 ᴄʜᴇᴄᴋɪɴɢ ᴜᴘᴅᴀᴛᴇs ✨ ...**")
