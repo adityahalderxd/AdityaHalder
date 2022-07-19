@@ -1,5 +1,4 @@
-import os
-from .client import *
+from AdityaHalder import *
 
 app_get_me = app.get_me()
 ass_get_me = ass.get_me()
