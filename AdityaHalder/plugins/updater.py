@@ -30,15 +30,6 @@ def gen_chlog(repo, diff):
 
 
 def updater():
-    REPO_LINK = config.GIT_REPO
-    if config.GIT_TOKEN:
-        GIT_USERNAME = REPO_LINK.split("com/")[1].split("/")[0]
-        TEMP_REPO = REPO_LINK.split("https://")[1]
-        GIT_REPO = (
-            f"https://{GIT_USERNAME}:{config.GIT_TOKEN}@{TEMP_REPO}"
-        )
-    else:
-        GIT_REPO = config.GIT_REPO
     try:
         repo = Repo()
     except InvalidGitRepositoryError:
