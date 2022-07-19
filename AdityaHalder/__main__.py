@@ -78,7 +78,7 @@ async def init():
 home_text_pm = f"""**I Aᴍ Gᴇɴɪᴜs, Aɴ Aᴅᴠᴀɴᴄᴇᴅ UsᴇʀBᴏᴛ Wɪᴛʜ Sᴏᴍᴇ Usᴇғᴜʟ Fᴇᴀᴛᴜʀᴇs.**"""
 
 
-@robot.on_message(command(["start"]) & filters.private)
+@bot.on_message(command(["start"]) & filters.private)
 async def start(_, message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/027283ee9defebc3298b8.png",
@@ -108,7 +108,7 @@ Yᴏᴜʀ Oᴡɴ » Gᴇɴɪᴜs Usᴇʀ Bᴏᴛ.
     
     
     
-@robot.on_message(command(["help"]) & SUDOERS)
+@bot.on_message(command(["help"]) & SUDOERS)
 async def help_command(_, message):
     text, keyboard = await help_parser(message.from_user.mention)
     await robot.send_message(config.LOG_GROUP_ID, text, reply_markup=keyboard)
@@ -131,17 +131,17 @@ Tᴏ Gᴇᴛ Gᴇɴɪᴜs Cᴏᴍᴍᴀɴᴅs ✨...**
         keyboard,
     )
 
-@robot.on_callback_query(filters.regex("close") & SUDOERS)
+@bot.on_callback_query(filters.regex("close") & SUDOERS)
 async def close(_, CallbackQuery):
     await CallbackQuery.message.delete()
 
-@robot.on_callback_query(filters.regex("aditya") & SUDOERS)
+@bot.on_callback_query(filters.regex("aditya") & SUDOERS)
 async def aditya(_, CallbackQuery):
     text, keyboard = await help_parser(CallbackQuery.from_user.mention)
     await CallbackQuery.message.edit(text, reply_markup=keyboard)
 
 
-@robot.on_callback_query(filters.regex(r"help_(.*?)") & SUDOERS)
+@bot.on_callback_query(filters.regex(r"help_(.*?)") & SUDOERS)
 async def help_button(client, query):
     home_match = re.match(r"help_home\((.+?)\)", query.data)
     mod_match = re.match(r"help_module\((.+?)\)", query.data)
