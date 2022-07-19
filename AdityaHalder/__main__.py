@@ -11,6 +11,7 @@ from pytgcalls.exceptions import NoActiveGroupCall
 
 from .logging import LOGGER
 from AdityaHalder import config
+from AdityaHalder import HELPABLE, MOD_LOAD, MOD_NOLOAD
 from AdityaHalder.plugins import ALL_MODULES
 from AdityaHalder.modules.core.sudo import SUDOERS
 from AdityaHalder.modules.helpers.filters import command
