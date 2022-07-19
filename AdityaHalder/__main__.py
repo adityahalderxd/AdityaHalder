@@ -29,8 +29,8 @@ async def init():
             "Bot Client Start Failed!.. Exiting Process."
         )
         return
-   else:
-    await bot.start()
+    else:
+     await bot.start()
     try:
             await bot.send_message(
                 config.LOG_GROUP_ID, "I am alive ..."
@@ -101,7 +101,7 @@ async def init():
                 "Please promote Bot as Admin in Logger Group"
             )
             sys.exit()
-       else:
+        else:
         LOGGER("AdityaHalder").info(f"Assistant Client Started as {app_fnm}")
     for all_module in ALL_MODULES:
         imported_module = importlib.import_module("AdityaHalder.plugins." + all_module)
