@@ -39,7 +39,7 @@ async def init():
     else:
        bot_fnm = bot_get_me.first_name
     try:
-            await bot.send_message(
+       await bot.send_message(
                 config.LOG_GROUP_ID, "I am alive ..."
             )
         except:
@@ -74,9 +74,9 @@ async def init():
        else:
           bot_fnm = app_get_me.first_name
         try:
-            await app.join_chat("AdityaServer")
-            await app.join_chat("AdityaDiscus")
-            await app.send_message(
+           await app.join_chat("AdityaServer")
+           await app.join_chat("AdityaDiscus")
+           await app.send_message(
                 config.LOG_GROUP_ID, "User Client Started ..."
             )
         except:
@@ -106,9 +106,9 @@ async def init():
       else:
         ass_fnm = ass_get_me.first_name
         try:
-        	await ass.join_chat("AdityaServer")
-            await ass.join_chat("AdityaDiscus")
-            await ass.send_message(
+           await ass.join_chat("AdityaServer")
+           await ass.join_chat("AdityaDiscus")
+           await ass.send_message(
                 config.LOG_GROUP_ID, "Assistant Client Started ..."
             )
         except:
