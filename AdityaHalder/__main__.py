@@ -10,7 +10,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQ
 from pytgcalls.exceptions import NoActiveGroupCall
 
 from AdityaHalder import config
-from AdityaHalder.logging import logger
+from AdityaHalder.logging import LOGGER
 from AdityaHalder.plugins import ALL_MODULES
 from AdityaHalder.modules.core.sudo import SUDOERS
 from AdityaHalder.modules.helpers.filters import command
