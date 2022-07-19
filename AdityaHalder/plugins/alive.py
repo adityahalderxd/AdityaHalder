@@ -8,7 +8,7 @@ from AdityaHalder.modules.helpers.filters import command
 
 
 @Client.on_message(command(["alive"]) & SUDOERS)
-async def mother_chod(client: Client, message: Message):
+async def alive(client: Client, message: Message):
     await edit_or_reply(message, "**🥀 I Aᴍ Aʟɪᴠᴇ Mʏ Dᴇᴀʀ Gᴇɴɪᴜs Mᴀsᴛᴇʀ ✨ ...**")
 
 
