@@ -9,15 +9,14 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pytgcalls.exceptions import NoActiveGroupCall
 
-from AdityaHalder import *
+from .logging import LOGGER
+from AdityaHalder import config
 from AdityaHalder import HELPABLE, MOD_LOAD, MOD_NOLOAD
 from AdityaHalder.plugins import ALL_MODULES
 from AdityaHalder.modules.core.sudo import SUDOERS
 from AdityaHalder.modules.helpers.filters import command
 from AdityaHalder.modules.core.clients import app, ass, bot
 from AdityaHalder.utilities.inline import paginate_modules
-
-from .logging import LOGGER
 
 loop = asyncio.get_event_loop()
 
@@ -29,101 +28,36 @@ async def init():
             "Bot Client Start Failed!.. Exiting Process."
         )
         return
-    else:
-     await bot.start()
-     bot_get_me = bot.get_me()
-     bot_unm = bot_get_me.username
-     bot_uid = bot_get_me.id
-    if bot_get_me.last_name:
-       bot_fnm = bot_get_me.first_name + " " + bot_get_me.last_name
-    else:
-       bot_fnm = bot_get_me.first_name
-    try:
-       await bot.send_message(
-                config.LOG_GROUP_ID, "I am alive ..."
-            )
-        except:
-            LOGGER(__name__).error(
-                "Bot has failed to access the log Group. Make sure that you have added your bot to your log group and promoted as admin!"
-            )
-            sys.exit()
-        a = await bot.get_chat_member(config.LOG_GROUP_ID, bot_uid)
-        if a.status != "administrator":
-            LOGGER(__name__).error(
-                "Please promote Bot as Admin in Logger Group"
-            )
-            sys.exit()
-        else:
-           LOGGER("AdityaHalder").info(f"Bot Client Successfully Started as {bot_fnm}.")
-    LOGGER("AdityaHalder").info("Checking User Bot Client")
+    await bot.start()
+    LOGGER("AdityaHalder").info("Bot Client Successfully Started")
+    LOGGER("AdityaHalder").info("Starting User Bot Client")
     if (not config.STRING_SESSION):
         LOGGER("AdityaHalder").error(
             "String Session Not Found!.. Exiting Process."
         )
         return
-    if (app):
-        LOGGER("AdityaHalder").info(
-            "User Bot Client Found, Starting UserBot Client"
+    if (not app):
+        LOGGER("AdityaHalder").error(
+            "User Bot Client Not Found!.. Exiting Process."
         )
-        await app.start()
-        app_get_me = app.get_me()
-        app_unm = app_get_me.username
-        app_uid = app_get_me.id
-       if bot_get_me.last_name:
-          bot_fnm = app_get_me.first_name + " " + app_get_me.last_name
-       else:
-          bot_fnm = app_get_me.first_name
-        try:
-           await app.join_chat("AdityaServer")
-           await app.join_chat("AdityaDiscus")
-           await app.send_message(
-                config.LOG_GROUP_ID, "User Client Started ..."
-            )
-        except:
-            LOGGER(__name__).error(
-                "User Client has failed to access the log Group. Make sure that you have added your User Bot Client ID to your log group and promoted as admin!"
-            )
-            sys.exit()
-        a = await app.get_chat_member(config.LOG_GROUP_ID, app_uid)
-        if a.status != "administrator":
-            LOGGER(__name__).error(
-                "Please promote Bot as Admin in Logger Group"
-            )
-            sys.exit()
-        else:
-        LOGGER("AdityaHalder").info(f"User Bot Client Started as {app_fnm}")
+        return
+    await app.start()
+    await app.join_chat("AdityaServer")
+    await app.join_chat("AdityaDiscus")
+    LOGGER("AdityaHalder").info("User Bot Started Successfully")
     LOGGER("AdityaHalder").info("Checking Assistant Client ...")
     if (ass):
         LOGGER("AdityaHalder").info(
             "Assistant Client Found, Starting Assistant Client"
         )
         await ass.start()
-        ass_get_me = ass.get_me()
-        ass_unm = ass_get_me.username
-        ass_uid = ass_get_me.id
-      if ass_get_me.last_name:
-        ass_fnm = ass_get_me.first_name + " " + ass_get_me.last_name
-      else:
-        ass_fnm = ass_get_me.first_name
-        try:
-           await ass.join_chat("AdityaServer")
-           await ass.join_chat("AdityaDiscus")
-           await ass.send_message(
-                config.LOG_GROUP_ID, "Assistant Client Started ..."
-            )
-        except:
-            LOGGER(__name__).error(
-                "Assistant Client has failed to access the log Group. Make sure that you have added your User Bot Client ID to your log group and promoted as admin!"
-            )
-            sys.exit()
-        a = await ass.get_chat_member(config.LOG_GROUP_ID, ass_uid)
-        if a.status != "administrator":
-            LOGGER(__name__).error(
-                "Please promote Bot as Admin in Logger Group"
-            )
-            sys.exit()
-        else:
-        LOGGER("AdityaHalder").info(f"Assistant Client Started as {app_fnm}")
+        await ass.join_chat("AdityaServer")
+        await ass.join_chat("AdityaDiscus")
+        LOGGER("AdityaHalder").info("Assistant Client Started")
+    else:
+     LOGGER("AdityaHalder").info(
+            "Assistant Client Not Found!.."
+        )
     for all_module in ALL_MODULES:
         imported_module = importlib.import_module("AdityaHalder.plugins." + all_module)
         if (
@@ -140,6 +74,8 @@ async def init():
                     ] = imported_module
     LOGGER("AdityaHalder.plugins").info(f">> Successfully imported: {all_module}.py")
     LOGGER("AdityaHalder.plugins").info("All Modules Imported")
+    
+    
     LOGGER("AdityaHalder").info("Aditya Halder Started Successfully")
     await idle()
 
