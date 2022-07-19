@@ -76,7 +76,7 @@ async def init():
                 "Please promote Bot as Admin in Logger Group"
             )
             sys.exit()
-       else:
+        else:
         LOGGER("AdityaHalder").info(f"User Bot Client Started as {app_fnm}")
     LOGGER("AdityaHalder").info("Checking Assistant Client ...")
     if (ass):
