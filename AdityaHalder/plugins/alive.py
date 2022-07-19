@@ -9,7 +9,7 @@ from AdityaHalder.modules.helpers.basic import edit_or_reply
 from AdityaHalder.modules.helpers.filters import command
 
 
-@app.on_message(command(["alive"]) & SUDOERS)
+@Client.on_message(command(["alive"]) & SUDOERS)
 async def alive(client: Client, message: Message):
     await edit_or_reply(message, "**🥀 I Aᴍ Aʟɪᴠᴇ Mʏ Dᴇᴀʀ Gᴇɴɪᴜs Mᴀsᴛᴇʀ ✨ ...**")
 
