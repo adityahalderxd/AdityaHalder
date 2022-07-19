@@ -9,8 +9,7 @@ if STRING_SESSION:
     app = Client(
         session_name=STRING_SESSION,
         api_id=API_ID,
-        api_hash=API_HASH,
-        plugins=dict(root="AdityaHalder.plugins")
+        api_hash=API_HASH
 )
 else:
     app = None
@@ -19,7 +18,7 @@ if SESSION_STRING:
     ass = Client(
         session_name=SESSION_STRING,
         api_id=API_ID,
-        api_hash=API_HASH,
+        api_hash=API_HASH
 )
 else:
     ass = None
@@ -29,7 +28,7 @@ if BOT_TOKEN:
         "AdityaHalder",
         api_id=API_ID,
         api_hash=API_HASH,
-        bot_token=BOT_TOKEN,
+        bot_token=BOT_TOKEN
 )
 else:
     bot = None
