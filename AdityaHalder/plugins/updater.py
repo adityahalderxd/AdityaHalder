@@ -4,7 +4,7 @@ from os import system, execle, environ
 from git.exc import InvalidGitRepositoryError
 from pyrogram.types import Message
 from pyrogram import filters, Client
-from AdityaHalder.modules.core.client import app
+from AdityaHalder.modules.core.clients import app
 from AdityaHalder.config import GIT_REPO, GIT_BRANCH, OWNER_ID
 from AdityaHalder.modules.helpers.filters import command
 
@@ -48,7 +48,7 @@ def updater():
     return bool(changelog)
 
 
-@app.on_message(command(["update"]) & filters.user(OWNER_ID) & ~filters.edited)
+@Client.on_message(command(["update"]) & filters.user(OWNER_ID) & ~filters.edited)
 async def update_bot(_, message: Message):
     chat_id = message.chat.id
     msg = await message.edit("**🥀 ᴄʜᴇᴄᴋɪɴɢ ᴜᴘᴅᴀᴛᴇs ✨ ...**")
