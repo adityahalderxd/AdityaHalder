@@ -1,8 +1,6 @@
 from AdityaHalder.modules.core.dbs import dbb
 from AdityaHalder.modules.core.dirs import dirs
 from AdityaHalder.modules.core.github import git
-from AdityaHalder.modules.core.robot import xdbot
-from AdityaHalder.modules.core.client import *
 from AdityaHalder.modules.core.sudo import sudo
 
 from .logging import LOGGER
