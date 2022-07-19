@@ -9,7 +9,8 @@ if STRING_SESSION:
     app = Client(
         session_name=STRING_SESSION,
         api_id=API_ID,
-        api_hash=API_HASH
+        api_hash=API_HASH,
+        plugins=dict(root="AdityaHalder.plugins")
 )
 else:
     app = None
