@@ -27,9 +27,9 @@ else:
 if BOT_TOKEN:
     bot = Client(
         "AdityaHalder",
-        api_id=config.API_ID,
-        api_hash=config.API_HASH,
-        bot_token=config.BOT_TOKEN,
+        api_id=API_ID,
+        api_hash=API_HASH,
+        bot_token=BOT_TOKEN,
 )
 else:
     bot = None
