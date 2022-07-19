@@ -31,6 +31,13 @@ async def init():
         return
     else:
      await bot.start()
+     bot_get_me = bot.get_me()
+     bot_unm = bot_get_me.username
+     bot_uid = bot_get_me.id
+    if bot_get_me.last_name:
+       bot_fnm = bot_get_me.first_name + " " + bot_get_me.last_name
+    else:
+       bot_fnm = bot_get_me.first_name
     try:
             await bot.send_message(
                 config.LOG_GROUP_ID, "I am alive ..."
@@ -59,8 +66,15 @@ async def init():
             "User Bot Client Found, Starting UserBot Client"
         )
         await app.start()
+        app_get_me = app.get_me()
+        app_unm = app_get_me.username
+        app_uid = app_get_me.id
+       if bot_get_me.last_name:
+          bot_fnm = app_get_me.first_name + " " + app_get_me.last_name
+       else:
+          bot_fnm = app_get_me.first_name
         try:
-        	await app.join_chat("AdityaServer")
+            await app.join_chat("AdityaServer")
             await app.join_chat("AdityaDiscus")
             await app.send_message(
                 config.LOG_GROUP_ID, "User Client Started ..."
@@ -84,6 +98,13 @@ async def init():
             "Assistant Client Found, Starting Assistant Client"
         )
         await ass.start()
+        ass_get_me = ass.get_me()
+        ass_unm = ass_get_me.username
+        ass_uid = ass_get_me.id
+      if ass_get_me.last_name:
+        ass_fnm = ass_get_me.first_name + " " + ass_get_me.last_name
+      else:
+        ass_fnm = ass_get_me.first_name
         try:
         	await ass.join_chat("AdityaServer")
             await ass.join_chat("AdityaDiscus")
