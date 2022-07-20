@@ -10,7 +10,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQ
 from AdityaHalder import *
 from AdityaHalder.plugins import ALL_MODULES
 from AdityaHalder.modules.core.sudo import SUDOERS
-from AdityaHalder.modules.helpers.filters import command
+from AdityaHalder.modules.helpers.filters import command, commandpro
 from AdityaHalder.modules.core.clients import app, ass, bot
 from AdityaHalder.utilities.inline import paginate_modules
 
@@ -18,7 +18,7 @@ from AdityaHalder.utilities.inline import paginate_modules
 home_text_pm = f"""**I Aᴍ Gᴇɴɪᴜs, Aɴ Aᴅᴠᴀɴᴄᴇᴅ UsᴇʀBᴏᴛ Wɪᴛʜ Sᴏᴍᴇ Usᴇғᴜʟ Fᴇᴀᴛᴜʀᴇs.**"""
 
 
-@bot.on_message(command(["start"]) & filters.private)
+@bot.on_message(commandpro(["/start"]) & filters.private)
 async def start(_, message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/027283ee9defebc3298b8.png",
