@@ -4,7 +4,7 @@ import asyncio
 import importlib
 import sys
 
-from .logging import LOGGER
+from ..logging import LOGGER
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from AdityaHalder import *
